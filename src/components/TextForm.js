@@ -27,15 +27,15 @@ export default function TextForm(props) {
             <div className="mb-3">
                 <textarea className="form-control" style={{backgroundColor:props.mode==='dark'?'#343a40':'white', color:props.mode==='dark'?'white':'black'}}value={text}onChange={handleonchange}id="myBox" rows="8"></textarea>
             </div>
-            <button className='btn btn-primary mx-1' onClick={handleupcase}>convert to uppercase</button>
-            <button className='btn btn-primary mx-1' onClick={handlelowercase}>convert to lowecase</button>
-            <button className='btn btn-primary' onClick={reverseconvertor}>reverse the text</button>
+            <button disabled={text.length===0} className='btn btn-primary mx-1 my-1' onClick={handleupcase}>convert to uppercase</button>
+            <button disabled={text.length===0} className='btn btn-primary mx-1 my-1' onClick={handlelowercase}>convert to lowecase</button>
+            <button disabled={text.length===0} className='btn btn-primary mx-1 my-1' onClick={reverseconvertor}>reverse the text</button>
         </div>
         <div className='container' style={{color:props.mode==='dark'?'white':'black'}}>
             <h2>Your text summary</h2>
-            <p>{text.split(" ").length}word and {text.length}characters</p>
+            <p>{text.split(" ").filter((element)=>{ return element!=0}).length}word and {text.length}characters</p>
             <h2>Preview</h2>
-            <p>{text.length===0?"Enter Your Text...":text}</p>
+            <p>{text.length===0?"Nothing to preview":text}</p>
         </div>
         </>
     )

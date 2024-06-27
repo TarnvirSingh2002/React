@@ -40,7 +40,6 @@ function App() {
   },3000)
   return (
     <>
-
       <Navbar title="TextUtils"  mode={mode} tM={toggleMode} title2="Home"/> 
       <Alert alert={alert}/> 
       <div  className='container my-3'>
@@ -48,7 +47,7 @@ function App() {
           {/* we use exact to match the exact address otherwise it will partially match the address
           eg. /About-->component1
           /About/Home-->component2 in without exact case it will rander component1 everytime  */}
-          <Route exact path="/About" element={<About/>}/>
+          <Route exact path="/About" element={<About mode={mode}/>}/>
           <Route exact path="/" element={<TextForm head="Enter your query" mode={mode} showalert={showalert}/>}/>
           </Routes>   
       </div>
